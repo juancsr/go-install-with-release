@@ -1,4 +1,4 @@
-package cli
+package main
 
 import (
 	"fmt"
@@ -15,8 +15,4 @@ var rootCmd = &cobra.Command{
 
 func run(cmd *cobra.Command, args []string) {
 	fmt.Println("Fly through the sky")
-}
-
-func Execute() error {
-	return rootCmd.Execute()
 }

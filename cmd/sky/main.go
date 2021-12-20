@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-
-	"github.com/juancsr/go-install-with-release/cmd/cli"
 )
 
 func main() {
@@ -16,7 +14,7 @@ _\ \   <| |_| |
 	  |___/ 
 	`)
 
-	err := cli.Execute()
+	err := rootCmd.Execute()
 	if err != nil {
 		log.Panicf("Error exectuing sky command: %s\n", err)
 	}
