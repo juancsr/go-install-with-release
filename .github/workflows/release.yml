@@ -7,12 +7,14 @@ on:
       - 'v*'
 
 jobs:
-  build:
+  release-linux-amd64:
+    name: release linux/amd64
     runs-on: ubuntu-latest
     steps:
-    - name: Github Release
-      uses: elgohr/Github-Release-Action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+    - uses: actions/checkout@v2
+    - uses: wangyoucao577/go-release-action@v1.22
       with:
-        args: NewReleaseFromGithubActions
+        github_token: ${{ secrets.RELEASE_TOKEN }}
+        goos: linux
+        goarch: amd64
+        project_path: cmd/sky
