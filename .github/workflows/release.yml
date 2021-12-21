@@ -9,7 +9,7 @@ on:
 
 jobs:
   # Creates the new release
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,6 +19,7 @@ jobs:
 
   # Creates the bin file for linux amd64
   release-linux-amd64:
+    needs: release
     name: release linux/amd64
     runs-on: ubuntu-latest
     steps:
@@ -34,6 +35,7 @@ jobs:
 
   # Creates the bin file for darwin amd64
   release-darwin-amd64:
+    needs: release
     name: release darwin/amd64
     runs-on: ubuntu-latest
     steps:
