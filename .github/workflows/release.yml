@@ -4,8 +4,6 @@ on:
   push:
     tags:
       - "v*.*.*"
-  # release:
-  #   types: [created]
 
 jobs:
   # Creates the new release
@@ -40,53 +38,3 @@ jobs:
         project_path: "./cmd/sky"
         binary_name: "sky-cli"
         release_tag: ${{ github.ref_name }}
-
-  # # Creates the bin file for linux amd64
-  # release-linux-amd64:
-  #   needs: release
-  #   name: release linux/amd64
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - uses: wangyoucao577/go-release-action@v1.22
-  #     with:
-  #       github_token: ${{ secrets.RELEASE_TOKEN }}
-  #       goos: linux
-  #       goarch: amd64
-  #       project_path: "./cmd/sky"
-  #       binary_name: "sky-cli"
-  #       release_tag: ${{ github.ref_name }}
-
-  # # Creates the bin file for darwin amd64
-  # release-darwin-amd64:
-  #   needs: release
-  #   name: release darwin/amd64
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - uses: wangyoucao577/go-release-action@v1.22
-  #     with:
-  #       github_token: ${{ secrets.RELEASE_TOKEN }}
-  #       goos: darwin
-  #       goarch: amd64
-  #       project_path: "./cmd/sky"
-  #       binary_name: "sky-cli"
-  #       release_tag: ${{ github.ref_name }}
-
-  # # Creates the bin file for darwin amd64
-  # release-windows-amd64:
-  #   needs: release
-  #   name: release windows/amd64
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - uses: wangyoucao577/go-release-action@v1.22
-  #     with:
-  #       github_token: ${{ secrets.RELEASE_TOKEN }}
-  #       goos: windows
-  #       goarch: amd64
-  #       project_path: "./cmd/sky"
-  #       binary_name: "sky-cli.exe"
-  #       release_tag: ${{ github.ref_name }}
-
-
