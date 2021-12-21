@@ -5,6 +5,8 @@ on:
   push:
     tags:
       - 'v*'
+  release:
+    types: [created]
 
 jobs:
   release-linux-amd64:
@@ -17,4 +19,6 @@ jobs:
         github_token: ${{ secrets.RELEASE_TOKEN }}
         goos: linux
         goarch: amd64
-        project_path: cmd/sky
+        project_path: "./cmd/sky"
+        binary_name: "sky-cli"
+        #build_command: bin
